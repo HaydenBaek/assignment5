@@ -115,13 +115,7 @@ app.get("/app/data/profile.html", function (req, res) {
 
 
 
-app.use(function (req, res) {
-    res.status(404).send("<html><head><title>Page not found!</title></head><body><p>Nothing here.</p></body></html>");
-});
-
-
 app.get("/assignment6-database", function (req, res) {
-    console.log("HOHOHOHOHO");
     const mysql = require("mysql2");
     const connection = mysql.createConnection({
         host: "localhost",
@@ -129,41 +123,52 @@ app.get("/assignment6-database", function (req, res) {
         password: "",
         database: "assignment6"
     });
-    let myResults = null;
-    connection.connect();
-    // this could be from the req.body.user
 
-    // Replace with dynamic user data if needed
+    connection.connect();
+
+    // Specify the user to query
     let usr = "DangerousBoi";
 
     connection.execute(
         "SELECT A01418743_user.user_name, A01418743_user_timeline.description, A01418743_user_timeline.date_of_post, A01418743_user_timeline.time_of_post FROM A01418743_user INNER JOIN A01418743_user_timeline ON A01418743_user.ID = A01418743_user_timeline.user_id WHERE A01418743_user.user_name = ?",
         [usr],
-        function (error, results, fields) {
-            // results is an array of records, in JSON format
-            // fields contains extra meta data about results
-            console.log("results:", results);
+        function (error, results) {
             if (error) {
-                // in production, you'd really want to send an email to admin
-                // or in the very least, log it. But for now, just console
-                console.log(error);
+                console.error(error);
+                res.status(500).send("An error occurred while fetching data.");
+                return;
             }
-            // let's get the data but output it as an HTML table
-            let table = "<table><tr><th>User Name</th><th>Post Date</th><th>Post Text</th><th>Post Time</th><th>Post Views";
-            for (let i = 0; i < results.length; i++) {
-                table += "<tr>"
-                for (const property in results[i]) {
-                    table += "<td>" + results[i][property] + "</td>";
-                }
-                table += "</tr>";
-            }
-            // don't forget the '+'
+
+            // Construct an HTML table to send back
+            let table = `
+                <table border='1'>
+                    <tr>
+                        <th>User Name</th>
+                        <th>Description</th>
+                        <th>Date of Post</th>
+                        <th>Time of Post</th>
+                    </tr>
+            `;
+            results.forEach(row => {
+                table += `
+                    <tr>
+                        <td>${row.user_name}</td>
+                        <td>${row.description}</td>
+                        <td>${row.date_of_post}</td>
+                        <td>${row.time_of_post}</td>
+                    </tr>
+                `;
+            });
             table += "</table>";
+
+            // Send the HTML table back to the client
             res.send(table);
+
             connection.end();
         }
     );
 });
+
 
 
 let port = 8000;

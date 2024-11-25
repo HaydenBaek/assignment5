@@ -1,16 +1,3 @@
-// AJAX GET function
-function ajaxGET(url, callback) {
-    const xhr = new XMLHttpRequest();
-    xhr.onload = function() {
-        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
-            callback(this.responseText);
-        } else {
-            console.log("AJAX request error:", this.status);
-        }
-    };
-    xhr.open("GET", url);
-    xhr.send();
-}
 
 // Add event listener to Clear buttons
 document.querySelectorAll(".clear").forEach(function (currentElement, currentIndex, listObj) {
@@ -29,12 +16,25 @@ document.querySelectorAll(".clear").forEach(function (currentElement, currentInd
     });
 });
 
-  document.querySelector("#profileHTML").addEventListener("click", function (e) {
-
+document.querySelector("#profileHTML").addEventListener("click", function (e) {
     ajaxGET("/assignment6-database", function (data) {
-        // console.log(data);
+        // Display the returned HTML table in the "reviewShow" div
         document.getElementById("reviewShow").innerHTML = data; 
-    })
+    });
 });
+
+// AJAX GET function
+function ajaxGET(url, callback) {
+    const xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+            callback(this.responseText); // Pass the response to the callback
+        } else {
+            console.log("AJAX request error:", this.status);
+        }
+    };
+    xhr.open("GET", url);
+    xhr.send();
+}
 
   
