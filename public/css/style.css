@@ -1,0 +1,319 @@
+.container {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 1.2fr 0.8fr;
+    grid-template-areas:
+        "nav nav nav nav"
+        "sidebar main main main"
+        "content1 content2 content3 content4"
+        "footer footer footer footer";
+    grid-gap: 0.2rem;
+}
+
+.main-img{
+    width:20%;
+    height: 5%;
+}
+
+nav {
+    background: #274472;
+    grid-area: nav;
+    padding-left: 15px;
+    padding-right: 15px;
+    
+}
+
+main {
+    background: #274472;
+    grid-area: main;
+}
+
+#sidebar {
+    background: #6A9AB0;
+    grid-area: sidebar;
+}
+
+#content1 {
+    background: lightblue;
+    grid-area: content1;
+}
+
+#content2 {
+    background: lightgoldenrodyellow;
+    grid-area: content2;
+}
+
+#content3 {
+    background: lightpink;
+    grid-area: content3;
+}
+#content4{
+    background: grey;
+    grid-area: content4;
+}
+
+footer {
+    background: lightcyan;
+    grid-area: footer;
+}
+
+*{
+    text-decoration: none;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap; /* Prevents items from wrapping to a new line */
+    
+}
+
+.logo {
+    flex-shrink: 0; /* Prevents the logo from shrinking */
+}
+
+#title{
+    font-size: 4vw;
+    color: white;
+    font-weight: bold;
+}
+
+ul {
+    display: flex; /* Ensures the navigation items are in a row */
+    align-items: center; /* Vertically centers the items */
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+    list-style: none; /* Removes bullet points */
+    flex-grow: 1; /* Allows the list to use the available space */
+    justify-content: flex-end; /* Moves nav items to the right */
+    
+    
+}
+
+.list1 {
+    display: inline-block; /* Keeps list items in a line */
+    margin-right: 25px; /* Maintains current spacing between items */
+    
+}
+
+.list1 a{
+    color: white;
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+.header-button {
+    background-color: black;
+    margin-left: 10px; /* Keeps the current spacing between buttons */
+    border-radius: 10px;
+    padding: 10px;
+    width: 16%;
+    border: none; /* Removes border for a cleaner look */
+  
+}
+
+.header-button a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none; /* Ensures no underline */
+    display: block; /* Makes the entire button clickable */
+    font-size: 2vw;
+}
+
+
+table {
+    border: 2px solid black;
+   
+  }
+  
+  /* Adds a border to table cells */
+  th, td {
+    border: 1px solid black;
+    
+    
+  }
+  
+  /* Optional: Adds styling for header cells */
+  th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+  }
+
+/* For content 1*/
+
+.order-buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button1{
+    font-size:18px; 
+    border-radius:20px;
+}
+
+#cancel-button {
+    font-size:18px; 
+    border-radius:20px;
+    display: flex;
+
+}
+
+.content1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.content1 input[type="button"] {
+    margin: 5px; /* Space between the buttons */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.content input[type="button"] {
+    margin: 5px; /* Space between the buttons */
+}
+
+
+#snackJSON{
+    color:#C7253E;
+    background-color:yellow;
+}
+
+#content1JSON{
+    color:white;
+    background-color:cyan;
+}
+
+#content2JSON{
+    color:white;
+    background-color:grey;
+}
+
+#content3JSON{
+    color:orange;
+    background-color:red;
+}
+
+#content4JSON{
+    color:red;
+    background-color:darkorange;
+}
+
+
+
+
+
+.content-img{
+    width: 8vw;
+    padding-left: 6%;
+
+}
+
+.content-h2{
+    text-align: center;
+    color: white;
+}
+#content1-img{
+    background-color:#1ebbd7;
+    background-size: 100%;
+}
+
+#content2-img{
+    background-color:#5f6670;
+    background-size: 100%;
+}
+
+#content3-img{
+    background-color:#eb793d;
+    background-size: 100%;
+}
+
+#content4-img{
+    background-color:#C7253E;
+    background-size: 100%;
+}
+
+#snack-img{
+    background-image: ("/public/img/movietheatre.jpg");
+    background-color: yellowgreen;
+}
+
+#popcorn-img{
+    width: 20vw;
+}
+
+#snackHTML{
+    color:red; background-color:lightyellow; margin-left: 20%; display: block
+}
+
+#clear {
+    margin-right: 15%;
+}
+
+
+
+@media only screen and (max-width: 550px) {
+    .container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.4fr 0.4fr 2.2fr 1.2fr 1.2fr 1.2fr 1.2fr 1fr;
+        grid-template-areas:
+            "nav"
+            "sidebar"
+            "main"
+            "content1"
+            "content2"
+            "content3"
+            "content4"
+            "footer";
+    }
+
+    #title{
+        font-size: 7vw;
+        color: white;
+        font-weight: bold;
+    }
+
+    #popcorn-img{
+        width: 40vw;
+        padding-left: 29%;
+    }
+
+    #snackHTML{
+        margin-left: 28%;
+    }
+
+    #clear{
+        margin-right:23%
+    }
+
+    .content-img{
+        width: 24vw;
+        padding-left: 3%;
+    
+    }
+
+    .list1 a{
+        color: white;
+        font-weight: bold;
+        font-size: 2.4vw;
+    }
+
+    nav {
+        background: #274472;
+        grid-area: nav;
+        padding-left: 2vw;
+        padding-right: 2vw;
+        
+    }
+
+    
+}

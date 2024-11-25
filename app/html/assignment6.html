@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Assignment5</title>
+  <link href="/img/icon.png" rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css" href="/css/style.css" />
+
+
+
+  <style>
+    #slider {
+      overflow: hidden;
+    }
+
+    #slider figure {
+      position: relative;
+      width: 500%;
+      margin: 0;
+      left: 0;
+      animation: 20s slider infinite;
+    }
+
+    #slider figure img {
+      float: left;
+      width: 20%;
+
+    }
+
+    @keyframes slider {
+      0% {
+        left: 0;
+      }
+
+      20% {
+        left: 0;
+      }
+
+      25% {
+        left: -100%;
+      }
+
+      45% {
+        left: -100%
+      }
+
+      50% {
+        left: -200%;
+      }
+
+      70% {
+        left: -200%;
+      }
+
+      75% {
+        left: -300%;
+      }
+
+      95% {
+        left: -300%;
+      }
+
+      100% {
+        left: -400%;
+      }
+
+      
+
+    }
+
+    #special{
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <nav>
+      <div class="navbar">
+        <div class="logo"><a id="title" href="#">HayMovie</a></div>
+        <ul>
+          <li class="list1"><a href="#">Home</a></li>
+          <li class="list1"><a href="#">About</a></li>
+          <li class="list1"><a href="/app/data/profile.html">Reviews</a></li>
+          <button  class="header-button"><a>SignIn</a></button>
+          <button class="header-button"><a>SignUp</a></button>
+        </ul>
+      </div>
+    </nav>
+    <main>
+      <div id="slider">
+        <figure>
+          <img class="main-img" src="img/spiderman.jpg" alt="Sorrynoimage">
+          <img class="main-img" src="img/despicable4.jpg" alt="Sorrynoimage">
+          <img id = "special" class="main-img" src="img/avengers.jpg" alt="Sorrynoimage">
+          <img class="main-img" src="img/venom.jpg" alt="Sorrynoimage">
+          <img class="main-img" src="img/spiderman.jpg" alt="Sorrynoimage">
+        </figure>
+
+      </div>
+    </main>
+    <div id="sidebar">
+      <h2 class = "content-h2">Grab some snacks for movie!</h2>
+      <img id="popcorn-img" class="content-img" src="/img/popcorn.jpg">
+      <div class="clear order-buttons">
+        <input  class="button1" id="snackHTML" type="button"value="Order" />
+        <input class="clear button1" id="clear" type="button" value="Cancel Order" />
+      </div>
+
+      
+
+
+
+      <div class="ajax-stuff" id="snack-html"></div>
+    </div>
+    <div class="content1" style = "background-image: url(/img/snowbackground.jpg);">
+      <h1>Click the button below to see a movie!</h1>
+      <input style = "color:white; background-color:cyan;" class="button1" id="content1HTML" type="button" value="Movie 1" />
+      <input class="clear button1" type="button" value="Clear" />
+      <div class="ajax-stuff" id="content1-html"></div>
+    </div>
+    <div class="content1" id="content2" style = "background-image: url(/img/space.jpg);">
+      <h1>Click the button below to see a movie!</h1>
+      <input style="color:white; background-color:grey;" class="button1" id="content2HTML" type="button" value="Movie 2" />
+      <input class="clear button1" type="button" value="Clear" />
+      <div class="ajax-stuff" id="content2-html"></div>
+    </div>
+    <div class="content1" id="content3" style = "background-image: url(/img/fast.jpg);">
+      <h1>Click the button below to see a movie!</h1>
+      <input style="color:orange; background-color:red;" class="button1" id="content3HTML" type="button" value="Movie 3" />
+      <input class="clear button1" type="button" value="Clear" />
+      <div class="ajax-stuff" id="content3-html"></div>
+    </div>
+    <div class="content1" id="content4" style = "background-image: url(/img/bomb.jpg);">
+      <h1>Click the button below to see a movie!</h1>
+      <input style = "color:red; background-color:darkorange;" class="button1" id="content4HTML" type="button" value="Movie 4" />
+      <input class="clear button1" type="button" value="Clear" />
+      <div class="ajax-stuff" id="content4-html"></div>
+    </div>
+    <footer class="content1" style = "background-image: url(/img/party.jpg)">
+      <h1 style = "color: white">Surprise!</h1>
+      <input class="button1" id="rizzyHTML" type="button" value="Click me" />
+      <input class="clear button1" type="button" value="Clear" />
+      <div class="ajax-stuff" id="rizzy-html"></div>
+    </footer>
+  </div>
+
+  <script src="/js/client.js"></script>
+  <!-- <script src="/backendServer.js"></script> -->
+</body>
+
+</html>
